@@ -1,0 +1,9 @@
+sudo apt install awscli -y
+aws configure
+AKIAI466JAPARPSYPDSA
+6zBmx6gianL/slv+IKC+kmv8V4697+YIZNbP0c75
+
+
+
+aws s3 cp s3://pierwszyadamc/omlet.txt ./
+

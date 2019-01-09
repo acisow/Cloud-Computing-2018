@@ -1,0 +1,1 @@
+aws s3 sync ./folder s3://pierwszyadamc/folder

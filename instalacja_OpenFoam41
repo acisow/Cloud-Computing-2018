@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo add-apt-repository http://dl.openfoam.org/ubuntu
+sudo sh -c "wget -O - http://dl.openfoam.org/gpg.key | apt-key add -"
+sudo apt-get -y update
+sudo apt-get -y install openfoam4
+sudo apt-get -y upgrade
+echo "source /opt/openfoam4/etc/bashrc">>~/.bashrc
+source ~/.bashrc
+source ./.bashrc
+mkdir -p $FOAM_RUN
