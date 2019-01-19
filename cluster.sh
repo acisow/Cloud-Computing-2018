@@ -5,8 +5,7 @@ sudo sh -c "echo '/home/ubuntu/OpenFOAM  *(rw,sync,no_subtree_check)' >> /etc/ex
 sudo exportfs -ra
 sudo service nfs-kernel-server start
 
-SPIPS="$2 $3 $4"
-
+SPIPS=""$2" "$3" "$4""
 for IP in $SPIPS ; do ssh $IP 'rm -rf ${HOME}/OpenFOAM/*' ; done
 for IP in $SPIPS ; do ssh $IP 'sudo mount "$1":${HOME}/OpenFOAM ${HOME}/OpenFOAM' ; done
 
@@ -43,14 +42,14 @@ foamJob -p -screen simpleFoam
 
 reconstructPar
 
-rm -r 60 120 180 240 300 RW_opt_bez_warstwy.msh
+rm -r 60 120 180 240 300 RW_opt_bez_warstwy.msh RW_opt_coarse.msh RW_opt_poprzednia.msh
 
 cd ${FOAM_RUN}
-mkdir cluster_case_policzony
-tar -zcvf cluster_case_policzony/cluster_case_policzony.tar.gz ${FOAM_RUN}/cluster_case
+mkdir cluster_case_policzonyVTK
+tar -zcvf cluster_case_policzonyVTK/cluster_case_policzony.tar.gz ${FOAM_RUN}/cluster_case
 
 
 
-aws s3 sync ${FOAM_RUN}/cluster_policzony s3://dyskala/cluster_case_policzony
+aws s3 sync ${FOAM_RUN}/cluster_case_policzonyVTK s3://dyskala/cluster_case_policzonyVTK
 
 
