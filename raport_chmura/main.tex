@@ -1,0 +1,104 @@
+\documentclass[11pt,oneside,titlepage]{report}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[english,polish]{babel}
+%\usepackage{polski}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\makeatletter
+\usepackage[top=2cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+\usepackage{fancyhdr}
+
+\author{Adam Cisowski}
+\title{CFD calculations of Formula Student car in OpenFoam on AWS cluster}
+
+
+
+\newcommand{\linia}{\rule{\linewidth}{0.4mm}}
+\renewcommand{\maketitle}{\begin{titlepage}
+    \vspace*{0cm}
+    \begin{center}
+    Politechnika Warszawska\\
+    Wydzial Mechaniczny Energetyki i Lotnictwa\\
+    
+    
+    \end{center}
+    \vspace{3cm}
+    \noindent\linia
+    \begin{center}
+      \LARGE \textsc{\@title}
+         \end{center}
+     \linia
+	\vspace{1cm}     
+     \begin{center}\large
+     Obliczenia inżynierskie w chmurze
+     \end{center}
+    \vspace{2cm}
+   
+    \begin{center}\Large 
+    \@author
+    
+    \end{center}
+    \vspace{9cm}
+    \begin{center}
+    \@date
+    \end{center}
+  \end{titlepage}%
+}
+\makeatother
+
+%\date{16 June 2018}
+
+
+
+\renewcommand*\thesection{\arabic{section}} % zmiana numeracji sekcji 0.X -> X
+
+
+
+
+
+\begin{document}
+\pagestyle{fancy}
+\rhead{czesc\\czesc\\czesc\\czesc}
+\rhead{\includegraphics[height=1cm]{pobrane.jpg}}
+\lhead{}
+
+\maketitle
+\tableofcontents
+\newpage
+
+
+
+
+\input{chapters/introduction} 
+\input{chapters/case}
+\input{chapters/awscli}
+\input{chapters/cluster}
+\input{chapters/results}
+\input{chapters/summarise}
+
+
+
+
+
+
+
+
+\newpage
+\rhead{\includegraphics[height=1.5cm]{AmazonS3.png}}
+\section{Working on AWS Amazon}
+
+The case has been create on PC and coarse mesh has been converted to OpenFoam format to check entire case. When the case was correct, it has been sent to S3 storage with fine mesh. 
+
+EC2 instances was launched as Spot Request Instance, because of the lower price (about 70\% in compare to On Demand Instances). Then the files was download from S3 to EC2 instance by command "aws s3 cp s3://bucket-name/file ./". Next it has been working as in normal PC. 
+
+The results has been sent to S3 by command "aws s3 sync <folder> s3://bucket-name/folder" or it was download directly by FileZilla to PC.
+
+\section{Summarize}
+The OpenFoam is very good free software, but in more complex calculations it might fail. I think that in better mesh, difference between OpenFoam and Fluent could be smaller. However, Fluent's solver is more stable (calculate low quality meshes), but very expensive. In the near future, calculations will be validated in aerodynamic tunnel in our faculty.
+
+
+
+
+
+\end{document}
