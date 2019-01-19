@@ -1,11 +1,6 @@
 #!/bin/bash
 
-#sudo apt update -y 
 
-./ssh_agent
-
-cd
-sleep 3
 sudo sh -c "echo '/home/ubuntu/OpenFOAM  *(rw,sync,no_subtree_check)' >> /etc/exports"
 sudo exportfs -ra
 sudo service nfs-kernel-server start
@@ -48,7 +43,7 @@ foamJob -p -screen simpleFoam
 
 reconstructPar
 
-rm -r 25 RW_opt_bez_warstwy.msh
+rm -r 60 120 180 240 300 RW_opt_bez_warstwy.msh
 
 cd ${FOAM_RUN}
 mkdir cluster_case_policzony

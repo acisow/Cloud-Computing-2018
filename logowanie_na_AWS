@@ -1,3 +1,4 @@
 #!/bin/bash
 chmod 400 Klucz_AWS_Ali.pem
-ssh -i "Klucz_AWS_Ali.pem" ubuntu@$1
+#ssh -i "Klucz_AWS_Ali.pem" ubuntu@$1
+ssh -A ubuntu@$1
