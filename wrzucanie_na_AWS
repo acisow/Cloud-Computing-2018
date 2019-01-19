@@ -1,1 +1,7 @@
-scp -r -i "~/AWS/Klucz_AWS_Ali.pem" /home/adamc/AWS/Klucz_AWS_Ali.pem ubuntu@ec2-34-221-81-53.us-west-2.compute.amazonaws.com:/home/ubuntu/.ssh
+#!/bin/bash
+scp -r -i "./Klucz_AWS_Ali.pem" /home/adamc/Obliczenia_chmura/pobieranie_z_s3 ubuntu@$1:/home/ubuntu/
+scp -r -i "./Klucz_AWS_Ali.pem" /home/adamc/Obliczenia_chmura/cluster.sh ubuntu@$1:/home/ubuntu/
+scp -r -i "./Klucz_AWS_Ali.pem" /home/adamc/Obliczenia_chmura/Klucz_AWS_Ali.pem ubuntu@$1:/home/ubuntu/
+
+scp -r -i "./Klucz_AWS_Ali.pem" /home/adamc/Obliczenia_chmura/klucz ubuntu@$1:/home/ubuntu/
+

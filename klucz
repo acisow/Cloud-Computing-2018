@@ -1,0 +1,6 @@
+cd ~/.ssh
+sudo cp ~/Klucz_AWS_Ali.pem ./
+cd
+eval "$(ssh-agent)"
+exec ssh-agent bash
+ssh-add ~/.ssh/Klucz_AWS_Ali.pem

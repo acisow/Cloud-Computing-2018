@@ -1,0 +1,159 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      nut;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    
+
+   
+    ns_inlet
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+
+    ns_outlet
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+
+   
+    
+
+        wall-ns_air
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_03mm
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_rear_wing
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_rear_wheel
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_front_wheel
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_mono_zew
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+	ns_mono_wew
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_driver
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_front_wing
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    
+
+    ns_zawieszenie
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_dyfuzor_dol
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    ns_dyfuzor_gora
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+     ns_rama
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+     ns_side_pod
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+    
+    ns_road
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+ns_silnik
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    
+    
+
+    ns_symmetry
+    {
+        type            symmetry;
+        
+    }
+
+    ns_symmetry_2
+    {
+        type            symmetry;
+        
+    }
+
+    
+}
+
+
+// ************************************************************************* //

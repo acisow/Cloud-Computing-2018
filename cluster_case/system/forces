@@ -1,0 +1,128 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+forces_others
+{
+    type        forces;
+
+    libs ( "libforces.so" );
+
+    writeControl   timeStep;
+    timeInterval    1;
+
+    log         yes;
+
+    patches     ( wall-ns_air ns_zawieszenie ns_side_pod ns_driver ns_03mm ns_rear_wheel ns_front_wheel ns_mono_wew ns_rama ns_silnik ns_dyfuzor_gora);
+    rho         rhoInf;     // Indicates incompressible
+    log         true;
+    rhoInf      1;          // Redundant for incompressible
+
+    CofR        (0 0 0);    // Rotation around centre line of propeller
+    pitchAxis   (0 0 1);
+}
+
+
+
+forces_ns_rear_wing
+{
+    type        forces;
+
+    libs ( "libforces.so" );
+
+    writeControl   timeStep;
+    timeInterval    1.2;
+
+    log         yes;
+
+    patches     ( ns_rear_wing );
+    rho         rhoInf;     // Indicates incompressible
+    log         true;
+    rhoInf      1.2;          // Redundant for incompressible
+
+    CofR        (0 0 0);    // Rotation around centre line of propeller
+    pitchAxis   (0 0 1);
+}
+
+
+
+
+forces_mono
+{
+    type        forces;
+
+    libs ( "libforces.so" );
+
+    writeControl   timeStep;
+    timeInterval    1;
+
+    log         yes;
+
+    patches     ( ns_mono_zew );
+    rho         rhoInf;     // Indicates incompressible
+    log         true;
+    rhoInf      1;          // Redundant for incompressible
+
+    CofR        (0 0 0);    // Rotation around centre line of propeller
+    pitchAxis   (0 0 1);
+}
+
+
+
+
+
+forces_ns_front_wing
+{
+    type        forces;
+
+    libs ( "libforces.so" );
+
+    writeControl   timeStep;
+    timeInterval    1;
+
+    log         yes;
+
+    patches     ( ns_front_wing );
+    rho         rhoInf;     // Indicates incompressible
+    log         true;
+    rhoInf      1;          // Redundant for incompressible
+
+    CofR        (0 0 0);    // Rotation around centre line of propeller
+    pitchAxis   (0 0 1);
+}
+
+
+
+
+forces_dyfuzor
+{
+    type        forces;
+
+    libs ( "libforces.so" );
+
+    writeControl   timeStep;
+    timeInterval    1;
+
+    log         yes;
+
+    patches     ( ns_dyfuzor_dol);
+    rho         rhoInf;     // Indicates incompressible
+    log         true;
+    rhoInf      1;          // Redundant for incompressible
+
+    CofR        (0 0 0);    // Rotation around centre line of propeller
+    pitchAxis   (0 0 1);
+}
+
+
+
+
+
+
+
+
+// ************************************************************************* //

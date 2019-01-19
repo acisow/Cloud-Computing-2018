@@ -1,0 +1,156 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform $flowVelocity;
+
+boundaryField
+{
+    //- Set patchGroups for constraint patches
+    
+
+    #include "include/fixedInlet"
+    ns_outlet
+    {
+        type		zeroGradient;
+    }
+
+
+
+    ns_road
+    {
+        type 		fixedValue;
+	value		$internalField;
+    }
+
+    ns_rear_wheel 
+    {
+        
+	
+	type rotatingWallVelocity;
+	origin (1.591 0 0);
+	axis (0 1 0);
+	omega 75;
+
+
+    }
+
+    ns_front_wheel
+    {
+        
+	
+	type rotatingWallVelocity;
+	origin (0 0 0);
+	axis (0 1 0);
+	omega 75;
+
+
+    }
+
+        wall-ns_air
+    {
+        type noSlip;
+    }
+
+    ns_03mm
+    {
+        type noSlip;
+    }
+
+    ns_rear_wing
+    {
+        type noSlip;
+    }
+
+    ns_mono_zew
+    {
+        type noSlip;
+    }
+
+    ns_mono_wew
+    {
+        type noSlip;
+    }
+
+    ns_driver
+    {
+        type noSlip;
+    }
+
+    ns_front_wing
+    {
+        type noSlip;
+    }
+
+    ns_dyfuzor_dol
+    {
+        type noSlip;
+    }
+
+    ns_rama
+    {
+        type noSlip;
+    }
+
+    ns_dyfuzor_gora
+    {
+        type noSlip;
+    }
+
+    ns_side_pod
+    {
+        type noSlip;
+    }
+
+    ns_silnik
+    {
+        type noSlip;
+    }
+
+ns_zawieszenie
+    {
+        type noSlip;
+    }
+
+
+    
+
+    ns_symmetry2
+    {
+        type            symmetry;
+    }
+
+    
+ 
+
+    
+
+    ns_symmetry
+    {
+        type            symmetry;
+    }
+
+    
+
+
+}
+
+
+// ************************************************************************* //

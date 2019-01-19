@@ -1,0 +1,148 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform $pressure;
+
+boundaryField
+{
+    
+
+    ns_inlet
+    {
+        type            zeroGradient;
+    }
+
+    ns_outlet
+    {
+        type            fixedValue;
+        value           $internalField;
+    }
+
+    
+
+        wall-ns_air
+    {
+        type            zeroGradient;
+    }
+
+    ns_03mm
+    {
+        type            zeroGradient;
+    }
+
+    ns_rear_wing
+    {
+        type            zeroGradient;
+    }
+
+    ns_rear_wheel
+    {
+        type            zeroGradient;
+    }
+
+    ns_front_wheel
+    {
+        type            zeroGradient;
+    }
+
+    ns_mono_zew
+    {
+        type            zeroGradient;
+    }
+
+ns_mono_wew
+    {
+        type            zeroGradient;
+    }
+
+    ns_driver
+    {
+        type            zeroGradient;
+    }
+
+    ns_front_wing
+    {
+        type            zeroGradient;
+    }
+
+    ns_mono_zew
+    {
+        type            zeroGradient;
+    }
+
+ns_mono_wew
+    {
+        type            zeroGradient;
+    }
+
+    ns_rama
+    {
+        type            zeroGradient;
+    }
+
+    ns_dyfuzor_dol
+    {
+        type            zeroGradient;
+    }
+ns_dyfuzor_gora
+    {
+        type            zeroGradient;
+    }
+
+    ns_side_pod
+    {
+        type            zeroGradient;
+    }
+
+ns_zawieszenie
+    {
+        type            zeroGradient;
+    }
+
+ns_silnik
+    {
+        type            zeroGradient;
+    }
+
+    ns_road
+    {
+        type            zeroGradient;
+    }
+
+    ns_symmetry_2
+    {
+        type            symmetry;
+    }
+
+    
+
+    
+
+    ns_symmetry
+    {
+        type            symmetry;
+    }
+
+    
+
+    
+}
+
+// ************************************************************************* //
